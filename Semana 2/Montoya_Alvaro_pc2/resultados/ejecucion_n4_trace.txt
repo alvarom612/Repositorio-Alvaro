@@ -1,0 +1,194 @@
+Traza de backtracking para n = 4
+
+Nivel 0: filas fijadas = 0
+....
+....
+....
+....
+Colocar reina en fila 0, columna 0
+
+Nivel 1: filas fijadas = 1
+Q...  fija
+....
+....
+....
+Poda: no se coloca en fila 1, columna 0
+Poda: no se coloca en fila 1, columna 1
+Colocar reina en fila 1, columna 2
+
+Nivel 2: filas fijadas = 2
+Q...  fija
+..Q.  fija
+....
+....
+Poda: no se coloca en fila 2, columna 0
+Poda: no se coloca en fila 2, columna 1
+Poda: no se coloca en fila 2, columna 2
+Poda: no se coloca en fila 2, columna 3
+Retroceder desde fila 1, columna 2
+Colocar reina en fila 1, columna 3
+
+Nivel 2: filas fijadas = 2
+Q...  fija
+...Q  fija
+....
+....
+Poda: no se coloca en fila 2, columna 0
+Colocar reina en fila 2, columna 1
+
+Nivel 3: filas fijadas = 3
+Q...  fija
+...Q  fija
+.Q..  fija
+....
+Poda: no se coloca en fila 3, columna 0
+Poda: no se coloca en fila 3, columna 1
+Poda: no se coloca en fila 3, columna 2
+Poda: no se coloca en fila 3, columna 3
+Retroceder desde fila 2, columna 1
+Poda: no se coloca en fila 2, columna 2
+Poda: no se coloca en fila 2, columna 3
+Retroceder desde fila 1, columna 3
+Retroceder desde fila 0, columna 0
+Colocar reina en fila 0, columna 1
+
+Nivel 1: filas fijadas = 1
+.Q..  fija
+....
+....
+....
+Poda: no se coloca en fila 1, columna 0
+Poda: no se coloca en fila 1, columna 1
+Poda: no se coloca en fila 1, columna 2
+Colocar reina en fila 1, columna 3
+
+Nivel 2: filas fijadas = 2
+.Q..  fija
+...Q  fija
+....
+....
+Colocar reina en fila 2, columna 0
+
+Nivel 3: filas fijadas = 3
+.Q..  fija
+...Q  fija
+Q...  fija
+....
+Poda: no se coloca en fila 3, columna 0
+Poda: no se coloca en fila 3, columna 1
+Colocar reina en fila 3, columna 2
+
+Nivel 4: filas fijadas = 4
+.Q..  fija
+...Q  fija
+Q...  fija
+..Q.  fija
+Solucion encontrada #1
+Retroceder desde fila 3, columna 2
+Poda: no se coloca en fila 3, columna 3
+Retroceder desde fila 2, columna 0
+Poda: no se coloca en fila 2, columna 1
+Poda: no se coloca en fila 2, columna 2
+Poda: no se coloca en fila 2, columna 3
+Retroceder desde fila 1, columna 3
+Retroceder desde fila 0, columna 1
+Colocar reina en fila 0, columna 2
+
+Nivel 1: filas fijadas = 1
+..Q.  fija
+....
+....
+....
+Colocar reina en fila 1, columna 0
+
+Nivel 2: filas fijadas = 2
+..Q.  fija
+Q...  fija
+....
+....
+Poda: no se coloca en fila 2, columna 0
+Poda: no se coloca en fila 2, columna 1
+Poda: no se coloca en fila 2, columna 2
+Colocar reina en fila 2, columna 3
+
+Nivel 3: filas fijadas = 3
+..Q.  fija
+Q...  fija
+...Q  fija
+....
+Poda: no se coloca en fila 3, columna 0
+Colocar reina en fila 3, columna 1
+
+Nivel 4: filas fijadas = 4
+..Q.  fija
+Q...  fija
+...Q  fija
+.Q..  fija
+Solucion encontrada #2
+Retroceder desde fila 3, columna 1
+Poda: no se coloca en fila 3, columna 2
+Poda: no se coloca en fila 3, columna 3
+Retroceder desde fila 2, columna 3
+Retroceder desde fila 1, columna 0
+Poda: no se coloca en fila 1, columna 1
+Poda: no se coloca en fila 1, columna 2
+Poda: no se coloca en fila 1, columna 3
+Retroceder desde fila 0, columna 2
+Colocar reina en fila 0, columna 3
+
+Nivel 1: filas fijadas = 1
+...Q  fija
+....
+....
+....
+Colocar reina en fila 1, columna 0
+
+Nivel 2: filas fijadas = 2
+...Q  fija
+Q...  fija
+....
+....
+Poda: no se coloca en fila 2, columna 0
+Poda: no se coloca en fila 2, columna 1
+Colocar reina en fila 2, columna 2
+
+Nivel 3: filas fijadas = 3
+...Q  fija
+Q...  fija
+..Q.  fija
+....
+Poda: no se coloca en fila 3, columna 0
+Poda: no se coloca en fila 3, columna 1
+Poda: no se coloca en fila 3, columna 2
+Poda: no se coloca en fila 3, columna 3
+Retroceder desde fila 2, columna 2
+Poda: no se coloca en fila 2, columna 3
+Retroceder desde fila 1, columna 0
+Colocar reina en fila 1, columna 1
+
+Nivel 2: filas fijadas = 2
+...Q  fija
+.Q..  fija
+....
+....
+Poda: no se coloca en fila 2, columna 0
+Poda: no se coloca en fila 2, columna 1
+Poda: no se coloca en fila 2, columna 2
+Poda: no se coloca en fila 2, columna 3
+Retroceder desde fila 1, columna 1
+Poda: no se coloca en fila 1, columna 2
+Poda: no se coloca en fila 1, columna 3
+Retroceder desde fila 0, columna 3
+
+n = 4
+cantidad de soluciones = 2
+Solucion 1:
+.Q..
+...Q
+Q...
+..Q.
+Solucion 2:
+..Q.
+Q...
+...Q
+.Q..

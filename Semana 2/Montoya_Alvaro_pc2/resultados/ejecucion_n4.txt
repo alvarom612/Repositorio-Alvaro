@@ -1,0 +1,12 @@
+n = 4
+cantidad de soluciones = 2
+Solucion 1:
+.Q..
+...Q
+Q...
+..Q.
+Solucion 2:
+..Q.
+Q...
+...Q
+.Q..

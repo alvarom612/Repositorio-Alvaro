@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /mnt/data/apellido_nombre_pc2/build
+Test project /mnt/data/apellido_nombre_pc2/build
+    Start 1: nqueens_tests
+1/4 Test #1: nqueens_tests ....................   Passed    0.02 sec
+    Start 2: actividad1_tests
+2/4 Test #2: actividad1_tests .................   Passed    0.01 sec
+    Start 3: actividad2_tests
+3/4 Test #3: actividad2_tests .................   Passed    0.01 sec
+    Start 4: actividad3_tests
+4/4 Test #4: actividad3_tests .................   Passed    0.03 sec
+
+[0;32m100% tests passed[0;0m, 0 tests failed[0;0m out of 4
+
+Total Test time (real) =   0.08 sec

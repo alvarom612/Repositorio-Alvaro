@@ -1,0 +1,42 @@
+$ cmake -S . -B build
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /mnt/data/apellido_nombre_pc2/build
+
+$ cmake --build build
+[  5%] [32mBuilding CXX object CMakeFiles/nqueens.dir/src/NQueensSolver.cpp.o[0m
+[ 10%] [32m[1mLinking CXX static library libnqueens.a[0m
+[ 10%] Built target nqueens
+[ 15%] [32mBuilding CXX object CMakeFiles/nqueens_demo.dir/demos/main.cpp.o[0m
+[ 20%] [32m[1mLinking CXX executable nqueens_demo[0m
+[ 20%] Built target nqueens_demo
+[ 25%] [32mBuilding CXX object CMakeFiles/nqueens_tests.dir/tests/test_nqueens.cpp.o[0m
+[ 30%] [32m[1mLinking CXX executable nqueens_tests[0m
+[ 30%] Built target nqueens_tests
+[ 35%] [32mBuilding CXX object CMakeFiles/nqueens_benchmark.dir/benchmark/benchmark_nqueens.cpp.o[0m
+[ 40%] [32m[1mLinking CXX executable nqueens_benchmark[0m
+[ 40%] Built target nqueens_benchmark
+[ 45%] [32mBuilding CXX object CMakeFiles/actividad1_dynamic_array.dir/actividades/actividad1-CC232/src/DynamicArray.cpp.o[0m
+[ 50%] [32m[1mLinking CXX static library libactividad1_dynamic_array.a[0m
+[ 50%] Built target actividad1_dynamic_array
+[ 55%] [32mBuilding CXX object CMakeFiles/actividad1_tests.dir/actividades/actividad1-CC232/tests/test_dynamic_array.cpp.o[0m
+[ 60%] [32m[1mLinking CXX executable actividad1_tests[0m
+[ 60%] Built target actividad1_tests
+[ 65%] [32mBuilding CXX object CMakeFiles/actividad2_linked_list.dir/actividades/actividad2-CC232/src/SimpleLinkedList.cpp.o[0m
+[ 70%] [32m[1mLinking CXX static library libactividad2_linked_list.a[0m
+[ 70%] Built target actividad2_linked_list
+[ 75%] [32mBuilding CXX object CMakeFiles/actividad2_tests.dir/actividades/actividad2-CC232/tests/test_simple_linked_list.cpp.o[0m
+[ 80%] [32m[1mLinking CXX executable actividad2_tests[0m
+[ 80%] Built target actividad2_tests
+[ 85%] [32mBuilding CXX object CMakeFiles/actividad3_stack_tools.dir/actividades/actividad3-CC232/src/StackTools.cpp.o[0m
+[ 90%] [32m[1mLinking CXX static library libactividad3_stack_tools.a[0m
+[ 90%] Built target actividad3_stack_tools
+[ 95%] [32mBuilding CXX object CMakeFiles/actividad3_tests.dir/actividades/actividad3-CC232/tests/test_stack_tools.cpp.o[0m
+[100%] [32m[1mLinking CXX executable actividad3_tests[0m
+[100%] Built target actividad3_tests
