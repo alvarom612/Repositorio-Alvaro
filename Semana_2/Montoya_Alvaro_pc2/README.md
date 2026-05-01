@@ -104,7 +104,7 @@ Ejecutar benchmark:
 
 ### Historial de commits
 
-El historial debe verse en el video y debe ser real. El enunciado exige al menos 5 commits en 5 días diferentes con mensajes coherentes. Este paquete no inventa commits; debes construir tu historial real en tu repositorio personal.
+El historial se evidencia en el video.
 
 ### Declaración de autoría
 
