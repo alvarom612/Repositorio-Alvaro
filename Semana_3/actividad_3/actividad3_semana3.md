@@ -1,7 +1,7 @@
 ## Actividad 3-CC232
 
 ### Integrantes
-- Nombre 1: Alvaro Raul Montoya Dulanto
+- Alvaro Raul Montoya Dulanto
 
 ---
 
