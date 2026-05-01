@@ -23,7 +23,8 @@ void testKnownCounts() {
         {2, 0},
         {3, 0},
         {4, 2},
-        {5, 10}
+        {5, 10},
+        {6, 4},
     };
 
     for (const auto& testCase : cases) {

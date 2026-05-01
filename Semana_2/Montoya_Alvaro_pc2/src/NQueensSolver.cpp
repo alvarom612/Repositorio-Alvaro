@@ -99,7 +99,8 @@ void NQueensSolver::reset(int n) {
 
 void NQueensSolver::backtrack(int row, bool trace, std::ostream* out) {
     if (trace && out != nullptr) {
-        *out << "\nNivel " << row << ": filas fijadas = " << row << "\n";
+        *out << "\nNivel " << row << ": filas fijadas = " << row
+             << ", soluciones guardadas = " << solutions_.size() << "\n";
         printPartialBoard(row, *out);
     }
 
@@ -178,6 +179,8 @@ void NQueensSolver::printPartialBoard(int fixedRows, std::ostream& out) const {
 
         if (row < fixedRows) {
             out << "  fija";
+        } else {
+            out << " por explorar";
         }
 
         out << "\n";

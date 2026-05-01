@@ -14,6 +14,18 @@ void printSolution(const std::vector<std::string>& board, int index) {
     }
 }
 
+bool allBoardsAreValid(NQueensSolver& solver,
+                        const std::vector<std::vector<std::string>>& solution) {
+    for (const std::vector<std::string>& board : solution) {
+        if (!solver.isValidBoard(board)) {
+            return false;
+        }
+    }
+
+    return true;
+
+}
+
 bool readArguments(int argc, char* argv[], int& n, bool& trace) {
     n = 4;
     trace = false;
@@ -58,6 +70,10 @@ int main(int argc, char* argv[]) {
 
     std::cout << "\nn = " << n << "\n";
     std::cout << "cantidad de soluciones = " << solutions.size() << "\n";
+
+    std::cout << "validacion observable = "
+              << (allBoardsAreValid(solver, solutions) ? "OK" : "FALLO") << "\n";
+
 
     if (n <= 6) {
         for (int i = 0; i < static_cast<int>(solutions.size()); ++i) {
