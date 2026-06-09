@@ -36,3 +36,7 @@
 - Huffman Tree construction
 - rotaciones (AVL-like utilities en algunos casos)
 - recorridos (inorder, preorder, postorder)
+
+### Bloque 2
+
+1. f
