@@ -43,8 +43,23 @@ if(TEST_SOURCES)
 endif()
 
 # =========================
+# Benchmark 
+# =========================
+file(GLOB_RECURSE BENCH_SOURCES benchmark.cpp)
+
+if(BENCH_SOURCES)
+    add_executable(benchmark_pc3 ${BENCH_SOURCES})
+    target_include_directories(benchmark_pc3 PRIVATE include)
+
+    if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+        target_compile_options(benchmark_pc3 PRIVATE -O2)
+    endif()
+endif()
+
+# =========================
 # Organización de salida
 # =========================
+
 set_target_properties(pc3 PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
