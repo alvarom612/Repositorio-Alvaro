@@ -52,7 +52,7 @@ Se implementó la solución principal del problema.
 
 ### Archivos creados/modificados:
 
-- `include/skyline.hpp`
+- `include/skyline.h`
 - `src/skyline.cpp`
 - `tests/test_skyline.cpp`
 
