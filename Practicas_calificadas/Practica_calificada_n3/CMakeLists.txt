@@ -14,21 +14,32 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 include_directories(include)
 
 # =========================
-# Source files
+# Librería principal
 # =========================
-file(GLOB_RECURSE SOURCES src/*.cpp)
-
-add_executable(pc3 ${SOURCES})
+add_library(skyline_lib
+    src/Skyline.cpp
+)
 
 # =========================
-# Warnings (importante para evaluación)
+# Main
+# =========================
+add_executable(pc3
+    demos/main.cpp
+)
+
+target_link_libraries(pc3 skyline_lib)
+
+# =========================
+# Warnings
 # =========================
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(pc3 PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(tests_pc3 PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(benchmark_pc3 PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
 # =========================
-# Testing (CTest)
+# Testing 
 # =========================
 enable_testing()
 
@@ -36,6 +47,8 @@ file(GLOB_RECURSE TEST_SOURCES tests/*.cpp)
 
 if(TEST_SOURCES)
     add_executable(tests_pc3 ${TEST_SOURCES})
+
+    target_link_libraries(tests_pc3 skyline_lib)
 
     target_include_directories(tests_pc3 PRIVATE include)
 
@@ -45,11 +58,12 @@ endif()
 # =========================
 # Benchmark 
 # =========================
-file(GLOB_RECURSE BENCH_SOURCES benchmark.cpp)
+file(GLOB_RECURSE BENCH_SOURCES benchmark/*.cpp)
 
 if(BENCH_SOURCES)
     add_executable(benchmark_pc3 ${BENCH_SOURCES})
     target_include_directories(benchmark_pc3 PRIVATE include)
+    target_link_libraries(benchmark_pc3 skyline_lib)
 
     if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
         target_compile_options(benchmark_pc3 PRIVATE -O2)

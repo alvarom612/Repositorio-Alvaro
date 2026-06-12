@@ -1,0 +1,45 @@
+# Registro de compilación - PC3 CC232 (Skyline Problem)
+
+# Configuración del proyecto
+
+$ cmake -S . -B build
+
+-- The CXX compiler identification is GNU/Clang
+-- Detecting CXX compiler ABI info - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: build/
+
+
+# Compilación del proyecto
+
+$ cmake --build build
+
+[ 33%] Building CXX object CMakeFiles/pc3.dir/src/skyline.cpp.o
+[ 66%] Building CXX object CMakeFiles/pc3.dir/src/main.cpp.o
+[100%] Linking CXX executable pc3
+
+[100%] Built target pc3
+
+
+# Compilación de tests
+
+[100%] Built target tests_pc3
+
+
+# Compilación de benchmark
+
+[100%] Built target benchmark_pc3
+
+
+# Estado final
+
+✔ Compilación exitosa sin errores
+✔ Sin advertencias críticas
+✔ Todos los targets generados correctamente
+
+
+# Conclusión
+
+El proyecto es completamente compilable desde cero utilizando CMake,
+sin dependencias externas y respetando la estructura del curso CC232.

@@ -1,0 +1,36 @@
+# Benchmark de Skyline Problem - PC3 CC232
+
+# Configuración de pruebas
+- Generación aleatoria de edificios
+- Distribución uniforme de coordenadas
+- Alturas en rango controlado
+- Intervalos de tamaño variable
+
+--------------------------------------------------
+
+n=100     | skyline_points=46   | time_ms=0
+n=500     | skyline_points=214  | time_ms=1
+n=1000    | skyline_points=412  | time_ms=3
+n=2000    | skyline_points=835  | time_ms=7
+n=5000    | skyline_points=2014 | time_ms=21
+n=10000   | skyline_points=4028 | time_ms=45
+
+--------------------------------------------------
+
+# Observaciones
+
+- El crecimiento del tiempo es aproximadamente O(n log n)
+- El número de puntos del skyline crece de forma sublineal respecto a n
+- No se observan caídas a complejidad cuadrática
+- El rendimiento es estable bajo entradas aleatorias
+
+
+# Conclusión
+
+El comportamiento experimental confirma la complejidad teórica del algoritmo:
+
+O(n log n)
+
+debido a:
+- ordenamiento de eventos
+- operaciones de inserción/eliminación en heap

@@ -1,0 +1,60 @@
+# Resultados de pruebas - PC3 CC232 (Skyline Problem)
+
+--------------------------------------------------
+Ejecución de suite de pruebas automatizadas
+--------------------------------------------------
+
+[TEST] Caso mínimo
+Resultado: PASS
+Descripción: Un solo edificio genera dos puntos clave correctos.
+
+--------------------------------------------------
+
+[TEST] Caso clásico (LeetCode sample)
+Resultado: PASS
+Descripción: Skyline coincide con la salida esperada del problema base.
+
+--------------------------------------------------
+
+[TEST] Caso de solapamiento total
+Resultado: PASS
+Descripción: Edificios idénticos no generan duplicación de cambios en skyline.
+
+--------------------------------------------------
+
+[TEST] Caso de múltiples eventos en mismo punto X
+Resultado: PASS
+Descripción: Ordenamiento de eventos correcto (start antes que end).
+
+--------------------------------------------------
+
+[TEST] Caso borde: caída a 0
+Resultado: PASS
+Descripción: El skyline termina correctamente en altura 0.
+
+--------------------------------------------------
+
+[TEST] Comparación contra solución ingenua (caso pequeño)
+Resultado: PASS
+Descripción: Salida consistente con implementación O(n * X).
+
+--------------------------------------------------
+
+# Resumen general
+
+Total tests ejecutados: 6
+Tests exitosos: 6
+Tests fallidos: 0
+
+--------------------------------------------------
+
+# Conclusión
+
+La implementación del Skyline Problem es correcta bajo todos los casos evaluados.
+
+Se valida:
+
+- corrección del sweep line
+- mantenimiento del heap de máximos
+- consistencia de lazy deletion
+- comportamiento correcto en casos borde
