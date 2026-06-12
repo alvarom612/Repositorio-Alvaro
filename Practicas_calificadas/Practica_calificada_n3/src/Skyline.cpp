@@ -12,6 +12,9 @@ Skyline::getSkyline(vector<vector<int>>& buildings) {
     vector<pair<int,int>> events;
 
     for (auto &b : buildings) {
+        if (b[0] == b[1]){ 
+            continue;
+        }
         events.push_back({b[0], -b[2]});
         events.push_back({b[1],  b[2]});
     }
@@ -45,9 +48,8 @@ Skyline::getSkyline(vector<vector<int>>& buildings) {
         if (currentMax != prevMax) {
             result.push_back({x, currentMax});
             prevMax = currentMax;
-            cout << "Event: " << x << ", Height: " << currentMax << endl;
-        } else {
-            _ASSERT(false); // This should not be reached
+            cout << "x=" << x << "altura=" << currentMax << endl;
+        
         }
     }
 
