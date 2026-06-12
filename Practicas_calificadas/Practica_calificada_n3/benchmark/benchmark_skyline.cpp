@@ -2,25 +2,24 @@
 #include <vector>
 #include <chrono>
 #include <random>
-#include "../include/skyline.hpp"
+#include "Skyline.h"
 
 using namespace std;
 using namespace std::chrono;
 
-/*
- * Genera edificios aleatorios para pruebas de rendimiento
- */
-vector<Skyline::Building> generateBuildings(int n, int maxCoord = 100000, int maxHeight = 1000) {
-    vector<Skyline::Building> b;
+vector<vector<int>> generate(int n) {
+
+    vector<vector<int>> b;
     b.reserve(n);
 
     random_device rd;
     mt19937 gen(rd());
 
-    uniform_int_distribution<int> distX(0, maxCoord);
-    uniform_int_distribution<int> distH(1, maxHeight);
+    uniform_int_distribution<int> distX(0, 100000);
+    uniform_int_distribution<int> distH(1, 1000);
 
     for (int i = 0; i < n; i++) {
+
         int l = distX(gen);
         int r = l + (distX(gen) % 100 + 1);
         int h = distH(gen);
@@ -31,28 +30,23 @@ vector<Skyline::Building> generateBuildings(int n, int maxCoord = 100000, int ma
     return b;
 }
 
-/*
- * Ejecuta una medición de rendimiento para un tamaño dado
- */
-void runBenchmark(int n) {
-    Skyline solver;
-    auto buildings = generateBuildings(n);
+void run(int n) {
+
+    Skyline s;
+    auto data = generate(n);
 
     auto start = high_resolution_clock::now();
-    auto result = solver.getSkyline(buildings);
+    auto res = s.getSkyline(data);
     auto end = high_resolution_clock::now();
 
-    auto duration = duration_cast<milliseconds>(end - start);
+    auto time = duration_cast<milliseconds>(end - start).count();
 
-    cout << "n=" << n
-         << " | skyline_points=" << result.size()
-         << " | time_ms=" << duration.count()
+    cout << n << " "
+         << res.size() << " "
+         << time << "ms"
          << endl;
 }
 
-/*
- * Benchmark principal
- */
 int main() {
 
     vector<int> tests = {
@@ -64,8 +58,10 @@ int main() {
         10000
     };
 
+    cout << "n skyline_points time\n";
+
     for (int n : tests) {
-        runBenchmark(n);
+        run(n);
     }
 
     return 0;

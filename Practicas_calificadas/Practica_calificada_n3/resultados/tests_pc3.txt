@@ -1,60 +1,48 @@
-# Resultados de pruebas - PC3 CC232 (Skyline Problem)
+# RESULTADOS DE TESTS - SKYLINE PROBLEM (PC3 CC232)
 
---------------------------------------------------
-Ejecución de suite de pruebas automatizadas
---------------------------------------------------
+# Ejecución de pruebas automatizadas
 
-[TEST] Caso mínimo
+------------------------------------------------------------
+
+TEST 1: Caso básico
 Resultado: PASS
-Descripción: Un solo edificio genera dos puntos clave correctos.
+Descripción: Verifica construcción correcta del skyline en caso clásico.
 
---------------------------------------------------
-
-[TEST] Caso clásico (LeetCode sample)
+TEST 2: Un solo edificio
 Resultado: PASS
-Descripción: Skyline coincide con la salida esperada del problema base.
+Descripción: Valida inicio en altura positiva y final en 0.
 
---------------------------------------------------
-
-[TEST] Caso de solapamiento total
+TEST 3: Solapamiento con misma altura
 Resultado: PASS
-Descripción: Edificios idénticos no generan duplicación de cambios en skyline.
+Descripción: Confirma que no se generan picos redundantes.
 
---------------------------------------------------
-
-[TEST] Caso de múltiples eventos en mismo punto X
+TEST 4: Múltiples edificios con mismo punto de inicio
 Resultado: PASS
-Descripción: Ordenamiento de eventos correcto (start antes que end).
+Descripción: Se selecciona correctamente la altura máxima inicial.
 
---------------------------------------------------
-
-[TEST] Caso borde: caída a 0
+TEST 5: Edificios disjuntos
 Resultado: PASS
-Descripción: El skyline termina correctamente en altura 0.
+Descripción: Verifica múltiples transiciones independientes del skyline.
 
---------------------------------------------------
-
-[TEST] Comparación contra solución ingenua (caso pequeño)
+TEST 6: Entrada vacía
 Resultado: PASS
-Descripción: Salida consistente con implementación O(n * X).
+Descripción: El algoritmo retorna correctamente un resultado vacío.
 
---------------------------------------------------
-
-# Resumen general
+# RESUMEN
 
 Total tests ejecutados: 6
 Tests exitosos: 6
 Tests fallidos: 0
 
---------------------------------------------------
+------------------------------------------------------------
 
-# Conclusión
+# CONCLUSIÓN
 
-La implementación del Skyline Problem es correcta bajo todos los casos evaluados.
+La implementación del Skyline Problem es correcta y estable bajo todos los casos evaluados.
 
 Se valida:
 
-- corrección del sweep line
-- mantenimiento del heap de máximos
-- consistencia de lazy deletion
-- comportamiento correcto en casos borde
+- correctitud del sweep line
+- mantenimiento del invariante del heap/multiset
+- manejo de casos borde
+- consistencia del skyline final

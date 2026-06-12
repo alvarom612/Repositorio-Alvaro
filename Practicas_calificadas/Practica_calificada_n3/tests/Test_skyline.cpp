@@ -1,70 +1,13 @@
-#include <iostream>
-#include <vector>
 #include <cassert>
-#include "../include/skyline.hpp"
+#include <vector>
+#include "Skyline.h"
 
 using namespace std;
 
-/*
- * Utilidad para imprimir resultados (debug / evidencia)
- */
-void printResult(const vector<vector<int>>& res) {
-    for (auto &p : res) {
-        cout << "[" << p[0] << "," << p[1] << "] ";
-    }
-    cout << endl;
-}
-
-/*
- * Solución ingenua O(n * X)
- * Sirve para comparación en casos pequeños (rubro explícito)
- */
-vector<vector<int>> naiveSkyline(vector<vector<int>> buildings) {
-    int maxX = 0;
-    for (auto &b : buildings)
-        maxX = max(maxX, b[1]);
-
-    vector<int> height(maxX + 2, 0);
-
-    for (auto &b : buildings) {
-        for (int x = b[0]; x < b[1]; x++) {
-            height[x] = max(height[x], b[2]);
-        }
-    }
-
-    vector<vector<int>> res;
-    int prev = 0;
-
-    for (int x = 0; x <= maxX; x++) {
-        if (height[x] != prev) {
-            res.push_back({x, height[x]});
-            prev = height[x];
-        }
-    }
-
-    return res;
-}
-
-/*
- * Test 1: Caso mínimo
- */
-void test_minimo() {
-    vector<vector<int>> input = {{0,2,3}};
-
-    Skyline s;
-    auto res = s.getSkyline({{0,2,3}});
-
-    assert(!res.empty());
-    assert(res.front()[0] == 0);
-}
-
-/*
- * Test 2: Caso clásico LeetCode
- */
-void test_ejemplo() {
+void test_basic() {
     Skyline s;
 
-    vector<Skyline::Building> b = {
+    vector<vector<int>> b = {
         {2,9,10},
         {3,7,15},
         {5,12,12},
@@ -72,80 +15,85 @@ void test_ejemplo() {
         {19,24,8}
     };
 
-    auto res = s.getSkyline(b);
+    auto r = s.getSkyline(b);
 
-    // solo verificación básica estructural
-    assert(res.size() > 0);
-    assert(res[0][1] > 0);
+    assert(!r.empty());
+    assert(r[0][1] == 10 || r[0][1] == 15);
 }
 
-/*
- * Test 3: edificios solapados (caso borde importante)
- */
-void test_solapados() {
+void test_single_building() {
     Skyline s;
 
-    vector<Skyline::Building> b = {
-        {0,5,5},
-        {0,5,5},
-        {0,5,5}
-    };
+    vector<vector<int>> b = {{0,2,3}};
+    auto r = s.getSkyline(b);
 
-    auto res = s.getSkyline(b);
-
-    // debe colapsar alturas duplicadas
-    assert(!res.empty());
-    assert(res.back()[1] == 0);
+    assert(r.size() == 2);
+    assert(r[0][1] == 3);
+    assert(r[1][1] == 0);
 }
 
-/*
- * Test 4: comparación contra solución ingenua (pequeño)
- */
-void test_vs_naive() {
-    vector<vector<int>> input = {
-        {0,2,3},
-        {2,5,3}
-    };
-
+void test_overlap_same_height() {
     Skyline s;
 
-    vector<Skyline::Building> b;
-    for (auto &v : input)
-        b.push_back({v[0], v[1], v[2]});
-
-    auto fast = s.getSkyline(b);
-    auto slow = naiveSkyline(input);
-
-    // comparación parcial (estructura, no necesariamente exactitud total fina)
-    assert(!fast.empty());
-    assert(!slow.empty());
-}
-
-/*
- * Test 5: caso borde - caída a 0
- */
-void test_caida_cero() {
-    Skyline s;
-
-    vector<Skyline::Building> b = {
-        {1,3,4}
+    vector<vector<int>> b = {
+        {1,5,5},
+        {2,6,5},
+        {3,7,5}
     };
 
-    auto res = s.getSkyline(b);
+    auto r = s.getSkyline(b);
 
-    assert(res.back()[1] == 0);
+    assert(!r.empty());
+    assert(r.back()[1] == 0);
 }
 
-/*
- * MAIN de tests reproducibles
- */
+void test_same_x_events() {
+    Skyline s;
+
+    vector<vector<int>> b = {
+        {2,10,10},
+        {2,10,7},
+        {2,10,12}
+    };
+
+    auto r = s.getSkyline(b);
+
+    assert(r[0][1] == 12);
+}
+
+void test_disjoint_buildings() {
+    Skyline s;
+
+    vector<vector<int>> b = {
+        {1,3,3},
+        {5,7,4},
+        {9,11,2}
+    };
+
+    auto r = s.getSkyline(b);
+
+    assert(!r.empty());
+    assert(r.size() >= 6);
+}
+
+void test_flat_ground() {
+    Skyline s;
+
+    vector<vector<int>> b = {};
+
+    auto r = s.getSkyline(b);
+
+    assert(r.empty());
+}
+
 int main() {
-    test_minimo();
-    test_ejemplo();
-    test_solapados();
-    test_vs_naive();
-    test_caida_cero();
 
-    cout << "Todos los tests pasaron correctamente." << endl;
+    test_basic();
+    test_single_building();
+    test_overlap_same_height();
+    test_same_x_events();
+    test_disjoint_buildings();
+    test_flat_ground();
+
     return 0;
 }
