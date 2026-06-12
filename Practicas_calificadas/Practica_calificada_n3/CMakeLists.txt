@@ -34,7 +34,7 @@ if(TEST_SOURCES)
     target_include_directories(tests_pc3 PRIVATE include)
 
     enable_testing()
-    add_test(NAME skyline_tests COMMAND tests_pc3)
+    add_test(NAME skyline_tests COMMAND $<TARGET_FILE:tests_pc3>)
 endif()
 
 # =========================
@@ -45,7 +45,7 @@ file(GLOB_RECURSE BENCH_SOURCES benchmark/*.cpp)
 if(BENCH_SOURCES)
     add_executable(benchmark_pc3 ${BENCH_SOURCES} ${SOURCES})
     target_include_directories(benchmark_pc3 PRIVATE include)
-    
+
   if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(benchmark_pc3 PRIVATE $<$<CONFIG:Release>:-O2>)
     elseif (MSVC)
