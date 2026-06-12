@@ -1,4 +1,5 @@
 #include "Skyline.h"
+#include <iostream>
 #include <vector>
 #include <set>
 #include <algorithm>
@@ -38,11 +39,15 @@ Skyline::getSkyline(vector<vector<int>>& buildings) {
             }
         }
 
+        _ASSERT(!heights.empty());
         int currentMax = *heights.rbegin();
 
         if (currentMax != prevMax) {
             result.push_back({x, currentMax});
             prevMax = currentMax;
+            cout << "Event: " << x << ", Height: " << currentMax << endl;
+        } else {
+            _ASSERT(false); // This should not be reached
         }
     }
 
